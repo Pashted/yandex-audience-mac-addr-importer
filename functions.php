@@ -19,7 +19,6 @@ function postFile()
     $BODY .= 'Content-Disposition: form-data; name="file"; filename="' . $filename . '"' . $eol; //first Content data for post file, remember you only put 1 when you are going to add more Contents, and 2 on the last, to close the Content Instance
     $BODY .= 'Content-Type: application/octet-stream' . $eol; //Same before row
     $BODY .= 'Content-Transfer-Encoding: base64' . $eol . $eol; // we put the last Content and 2 $eol,
-//    $BODY .= chunk_split(base64_encode(file_get_contents($file_url))) . $eol; // we write the Base64 File Content and the $eol to finish the data,
     $BODY .= file_get_contents($filename) . $eol; // we write the Base64 File Content and the $eol to finish the data,
     $BODY .= '--' . $BOUNDARY . '--' . $eol . $eol; // we close the param and the post width "--" and 2 $eol at the end of our boundary header.
 
