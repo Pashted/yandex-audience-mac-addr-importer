@@ -29,7 +29,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
     <input name="file" type="file" accept=".txt">
     <button type="submit">Загрузить</button>
     <?
-    if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+    if (isset($_FILES['file']) && move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
         echo '<pre>';
         echo "Файл корректен и был успешно загружен.\n";
         print_r($_FILES);
